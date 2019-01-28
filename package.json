@@ -1,5 +1,5 @@
 {
-  "name": "ilorm-connector-postgresql",
+  "name": "ilorm-connector-knex",
   "version": "0.1.1",
   "description": "Connector to SQL database for ilorm ORM",
   "main": "index.js",
@@ -20,11 +20,11 @@
     "redshift"
   ],
   "dependencies": {
-    "ilorm-constants": "^0.1.0",
+    "ilorm-constants": "^0.3.0",
     "knex": "0.14.2"
   },
   "devDependencies": {
-    "ilorm": "^0.2.0"
+    "ilorm": "^0.3.0"
   },
   "author": "guillaume DAIX",
   "license": "MIT"
