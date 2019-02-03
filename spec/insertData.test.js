@@ -13,9 +13,6 @@ const knex = require('knex')({
     multipleStatements: true
   }
 });
-knex.on('query', function( queryData ) {
-  console.log(queryData.sql, queryData.bindings);
-});
 
 const knexConnection = ilormKnex.fromKnex(knex);
 
@@ -31,7 +28,7 @@ const userSchema = new Schema({
 });
 
 const modelConfig = {
-  name: 'invoices', // Optional, could be useful to know the model name
+  name: 'users', // Optional, could be useful to know the model name
   schema: userSchema,
   connector: new knexConnection({ tableName: 'users' }),
 };
@@ -50,15 +47,20 @@ describe('spec ilorm knex', () => {
     after(async () => {
       await knex.schema.dropTable('users');
 
-      knex.destroy();
+      await knex.destroy();
     });
 
     it('Should insert data with model saving', async () => {
       const user = new User();
-      user.firstName = 'test';
-      user.lastName = 'anotherTest';
+      user.firstName = 'Smith';
+      user.lastName = 'Bond';
 
       await user.save();
+
+      const results = await knex.table('users').first('firstName', 'lastName');
+
+      expect(results.firstName).to.be.equal('Smith');
+      expect(results.lastName).to.be.equal('Bond');
     });
   });
 });
