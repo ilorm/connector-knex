@@ -28,7 +28,7 @@
   ],
   "dependencies": {
     "ilorm-constants": "^0.3.0",
-    "knex": "0.14.2"
+    "knex": "0.19.5"
   },
   "devDependencies": {
     "chai": "^4.2.0",
