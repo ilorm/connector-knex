@@ -1,6 +1,6 @@
 {
   "name": "ilorm-connector-knex",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Connector to SQL database for ilorm ORM",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "redshift"
   ],
   "dependencies": {
-    "ilorm-constants": "^0.3.0",
+    "ilorm-constants": "^0.4.1",
     "knex": "0.20.10"
   },
   "devDependencies": {
