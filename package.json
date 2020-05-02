@@ -27,7 +27,7 @@
     "redshift"
   ],
   "dependencies": {
-    "ilorm-constants": "^0.4.1",
+    "ilorm-constants": "^0.5.0",
     "knex": "0.20.10"
   },
   "devDependencies": {

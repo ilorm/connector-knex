@@ -1199,6 +1199,11 @@ ilorm-constants@^0.3.0:
   resolved "https://registry.yarnpkg.com/ilorm-constants/-/ilorm-constants-0.3.0.tgz#603288f98bd054bd9a0893c34877d948518b174c"
   integrity sha512-KaTBTUCZQ+VAx0Gg/hVNC260qhhSuIcxaV4Ar7bTYULVS/vfV3r2GEBYnfPzbzk3T9gHoF+G0VBRg2nupe5v3g==
 
+ilorm-constants@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/ilorm-constants/-/ilorm-constants-0.5.0.tgz#7b93f38bd0a431748db023cd6bd4d2f0c335e9ca"
+  integrity sha512-ZSuYOOF6Q/p3qhl/rNDmAB7tZ2fdm/ZlO77NjwrEzgHYhF70qHmgXE1BbsL8+QNV+CBlm1C0Qg1Oq/jzMRwkQw==
+
 ilorm@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/ilorm/-/ilorm-0.3.0.tgz#941f135212f1dfb45020395c471ec2e8b83b7cc5"
