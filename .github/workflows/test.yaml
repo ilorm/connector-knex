@@ -25,9 +25,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Set-up MySQL ${{ matrix.mysql-version }}
         uses: mirromutth/mysql-action@v1.1
-          with:
-            mysql version: ${{ matrix.mysql-version }}
-            mysql database: 'test'
+        with:
+          mysql version: ${{ matrix.mysql-version }}
+          mysql database: 'test'
       - run: npm install
       - name: 'Test'
         run: npm test
