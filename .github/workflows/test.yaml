@@ -28,6 +28,7 @@ jobs:
         with:
           mysql version: ${{ matrix.mysql-version }}
           mysql database: 'test'
+          mysql root password: 'root'
       - run: npm install
       - name: 'Test'
         run: npm test
