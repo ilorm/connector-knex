@@ -1194,17 +1194,15 @@ ignore@^4.0.6:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
   integrity sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==
 
-ilorm-constants@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/ilorm-constants/-/ilorm-constants-0.3.0.tgz#603288f98bd054bd9a0893c34877d948518b174c"
-  integrity sha512-KaTBTUCZQ+VAx0Gg/hVNC260qhhSuIcxaV4Ar7bTYULVS/vfV3r2GEBYnfPzbzk3T9gHoF+G0VBRg2nupe5v3g==
+ilorm-constants@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/ilorm-constants/-/ilorm-constants-0.4.1.tgz#bddd2153fc55b46f1d95c1c9808bf726362abfd1"
+  integrity sha512-+W1IbQxhpnaW44HmvrQj2qVFCByqUZPKqF1jqxTyDr2GUD3JVn0cjea9sXmIuEwZ4pDo+toXnZMz3dfQ8ebfsg==
 
-ilorm@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/ilorm/-/ilorm-0.3.0.tgz#941f135212f1dfb45020395c471ec2e8b83b7cc5"
-  integrity sha512-mXW2TKhW8yqy7jgBKNKfAL9I50FCntU05cGZ6dEFUT99a5YLQy074TISQRHD/t9dEvk2TuCOVIZhRYQ3RN6w9g==
-  dependencies:
-    ilorm-constants "^0.3.0"
+ilorm@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/ilorm/-/ilorm-0.10.0.tgz#a2b3a53062c14769d00bd629df97db8faed4c147"
+  integrity sha512-4aAQE8KZwdGSmAhh76sYGVFgmkw0vMnRDOwYKT7TH2QPM2E+RnUfhfx1qFPtKu/a9MXkQMvatEhgyXN4zLayMw==
 
 import-fresh@^3.0.0:
   version "3.2.1"
