@@ -7,18 +7,15 @@ const ilormKnex = require('..');
 const knex = require('knex')({
   client: 'mysql2',
   connection: {
-    host : '127.0.0.1',
-    user : 'root',
-    password : 'root',
-    database : 'test',
-    multipleStatements: true
-  }
-});
-knex.on('query', function( queryData ) {
-  console.log(queryData.sql, queryData.bindings);
+    host: '127.0.0.1',
+    user: 'root',
+    password: 'root',
+    database: 'test',
+    multipleStatements: true,
+  },
 });
 
-const knexConnection = ilormKnex.fromKnex(knex);
+const KnexConnection = ilormKnex.fromKnex(knex);
 
 const ilorm = new Ilorm();
 
@@ -29,18 +26,18 @@ const { Schema, newModel, } = ilorm;
 const charSchema = fixtures.charactersSchema(Schema);
 
 const modelConfig = {
-  name: 'characters', // Optional, could be useful to know the model name
+  name: 'characters',
   schema: charSchema,
-  connector: new knexConnection({ tableName: 'characters' }),
+  connector: new KnexConnection({ tableName: 'characters', }),
 };
 
 const Characters = newModel(modelConfig);
 
 describe('spec ilorm knex', () => {
   describe('Should query data from database', () => {
-    before(async () => await fixtures.initDb(knex));
+    before(() => fixtures.initDb(knex));
 
-    after(async () => await fixtures.cleanDb(knex));
+    after(() => fixtures.cleanDb(knex));
 
     it('Should query data, based on criteria', async () => {
       const results = await Characters.query()
@@ -57,10 +54,15 @@ describe('spec ilorm knex', () => {
 
     it('Should count data, based on criteria', async () => {
       const results = await Characters.query()
-        .height.between({ min: 200, max: 300 })
+        .height.between({
+          min: 200,
+          max: 300,
+        })
         .count();
 
-      expect(results).to.be.deep.equal(2);
+      const EXPECTED_COUNT = 2;
+
+      expect(results).to.be.deep.equal(EXPECTED_COUNT);
     });
 
     it('Should retrieve on instance, based on criteria', async () => {

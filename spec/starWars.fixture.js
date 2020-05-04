@@ -1,15 +1,15 @@
-
-const initDb = async knex => {
-  await knex.schema.createTable('race', table => {
+// eslint-disable-next-line require-jsdoc
+const initDb = async (knex) => {
+  await knex.schema.createTable('race', (table) => {
     table.uuid('id');
     table.string('name');
   });
-  await knex.schema.createTable('characters', table => {
+  await knex.schema.createTable('characters', (table) => {
     table.uuid('id');
     table.string('name');
     table.uuid('raceId');
     table.integer('height');
-    table.enu('gender', ['M', 'F']);
+    table.enu('gender', [ 'M', 'F', ]);
   });
 
   await knex.insert([
@@ -20,7 +20,7 @@ const initDb = async knex => {
     {
       id: '08fb0d7c-499b-40fe-9074-5edc1b091e0a',
       name: 'wookie',
-    }
+    },
   ]).into('race');
 
   await knex.insert([
@@ -51,33 +51,32 @@ const initDb = async knex => {
       name: 'Leia Organa',
       gender: 'F',
       height: 150,
-    }
+    },
   ]).into('characters');
 };
 
-const cleanDb = async knex => {
+// eslint-disable-next-line require-jsdoc
+const cleanDb = async (knex) => {
   await knex.schema.dropTable('race');
   await knex.schema.dropTable('characters');
 
   await knex.destroy();
 };
 
-raceSchema = Schema => {
-  return new Schema({
-    id: Schema.string(),
-    name: Schema.string(),
-  });
-};
+// eslint-disable-next-line require-jsdoc
+const raceSchema = (Schema) => new Schema({
+  id: Schema.string(),
+  name: Schema.string(),
+});
 
-charactersSchema = Schema => {
-  return new Schema({
-    id: Schema.string(),
-    name: Schema.string(),
-    raceId: Schema.string(),
-    height: Schema.number(),
-    gender: Schema.string(),
-  });
-};
+// eslint-disable-next-line require-jsdoc
+const charactersSchema = (Schema) => new Schema({
+  id: Schema.string(),
+  name: Schema.string(),
+  raceId: Schema.string(),
+  height: Schema.number(),
+  gender: Schema.string(),
+});
 
 module.exports = {
   initDb,

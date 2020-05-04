@@ -6,15 +6,15 @@ const ilormKnex = require('..');
 const knex = require('knex')({
   client: 'mysql2',
   connection: {
-    host : '127.0.0.1',
-    user : 'root',
-    password : 'root',
-    database : 'test',
-    multipleStatements: true
-  }
+    host: '127.0.0.1',
+    user: 'root',
+    password: 'root',
+    database: 'test',
+    multipleStatements: true,
+  },
 });
 
-const knexConnection = ilormKnex.fromKnex(knex);
+const KnexConnection = ilormKnex.fromKnex(knex);
 
 const ilorm = new Ilorm();
 
@@ -24,13 +24,13 @@ const { Schema, newModel, } = ilorm;
 // Declare schema :
 const userSchema = new Schema({
   firstName: Schema.string(),
-  lastName: Schema.string()
+  lastName: Schema.string(),
 });
 
 const modelConfig = {
-  name: 'users', // Optional, could be useful to know the model name
+  name: 'users',
   schema: userSchema,
-  connector: new knexConnection({ tableName: 'users' }),
+  connector: new KnexConnection({ tableName: 'users', }),
 };
 
 const User = newModel(modelConfig);
@@ -52,6 +52,7 @@ describe('spec ilorm knex', () => {
 
     it('Should insert data with model saving', async () => {
       const user = new User();
+
       user.firstName = 'Smith';
       user.lastName = 'Bond';
 
