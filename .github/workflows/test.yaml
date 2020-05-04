@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         node-version: [8.x, 10.x, 12.x, 13.x]
-        mysql-version: [8.0, lastest]
+        mysql-version: [8.0, latest]
     steps:
       - uses: actions/checkout@v1
       - name: Set-up Node.js ${{ matrix.node-version }}
