@@ -41,6 +41,7 @@ uploads/
 jspm_packages
 node_modules
 packages/**/package-lock.json
+yarn.lock
 
 #===============#
 # DOCUMENTATION #
