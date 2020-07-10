@@ -5,7 +5,7 @@ const knex = require('knex');
 const confFile = `./config/${process.env.NODE_ENV}.json`;
 
 // eslint-disable-next-line no-sync
-const confPath = fs.existsSync(`./spec/${confFile}`) ? confFile : './config/default.json';
+const confPath = fs.existsSync(`./spec/${confFile}`) ? confFile : './config/default.js';
 
 const conf = require(confPath);
 

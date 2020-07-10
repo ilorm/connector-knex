@@ -80,4 +80,4 @@ providers/config.js
 #===================#
 # User local config #
 #===================#
-spec/config/local.json
+spec/config/local.js
