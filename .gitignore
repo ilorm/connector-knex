@@ -76,3 +76,8 @@ build/Release
 # ILORM SPECIFIC #
 #================#
 providers/config.js
+
+#===================#
+# User local config #
+#===================#
+spec/config/local.json

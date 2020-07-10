@@ -4,16 +4,7 @@ const fixtures = require('./starWars.fixture');
 // Create a clean instance of ilorm :
 const Ilorm = require('ilorm').constructor;
 const ilormKnex = require('..');
-const knex = require('knex')({
-  client: 'mysql2',
-  connection: {
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'root',
-    database: 'test',
-    multipleStatements: true,
-  },
-});
+const knex = require('./knex')();
 
 const KnexConnection = ilormKnex.fromKnex(knex);
 
