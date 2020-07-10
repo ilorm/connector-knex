@@ -2,7 +2,7 @@ const fs = require('fs');
 const knex = require('knex');
 
 // eslint-disable-next-line no-process-env
-const confFile = `./config/${process.env.NODE_ENV}.json`;
+const confFile = `./config/${process.env.NODE_ENV}.js`;
 
 // eslint-disable-next-line no-sync
 const confPath = fs.existsSync(`./spec/${confFile}`) ? confFile : './config/default.js';
