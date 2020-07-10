@@ -40,11 +40,11 @@ jobs:
       - name: Set-up Node.js
         uses: actions/setup-node@v1
       - name: Set-up MySQL ${{ matrix.mysql-version }}
-      uses: mirromutth/mysql-action@v1.1
-      with:
-        mysql version: '14.x'
-        mysql database: 'test'
-        mysql root password: 'root'
+        uses: mirromutth/mysql-action@v1.1
+        with:
+          mysql version: '14.x'
+          mysql database: 'test'
+          mysql root password: 'root'
       - run: npm install
       - name: 'Cover'
         run: npm run cover
