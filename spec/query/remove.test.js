@@ -62,8 +62,6 @@ describe('query.removeOne', () => {
     const amount = await Characters.query()
       .count();
 
-    console.log(amountRemoved);
-
     // eslint-disable-next-line no-magic-numbers
     expect(amount).to.equal(3);
     // eslint-disable-next-line no-magic-numbers
