@@ -89,4 +89,21 @@ describe('query.removeOne', () => {
       LUKE.name,
     ]);
   });
+
+  it('Should remove nothing if filter target an unknow value', async () => {
+
+    const Characters = await testContext.getCharactersModel();
+
+    const amountRemoved = await Characters.query()
+      .name.is('a non star wars character')
+      .removeOne();
+
+    const amount = await Characters.query()
+      .count();
+
+    // eslint-disable-next-line no-magic-numbers
+    expect(amount).to.equal(4);
+    // eslint-disable-next-line no-magic-numbers
+    expect(amountRemoved).to.equal(0);
+  });
 });
