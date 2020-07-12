@@ -1,5 +1,5 @@
 
-const TestContext = require('./helpers');
+const TestContext = require('../helpers');
 const { CHEWBACCA, } = require('../starWars.fixture');
 
 const { expect, } = require('chai');

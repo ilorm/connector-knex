@@ -1,9 +1,9 @@
-const fixtures = require('../starWars.fixture');
+const fixtures = require('./starWars.fixture');
 
 // Create a clean instance of ilorm :
 const Ilorm = require('ilorm').constructor;
-const knex = require('../knex');
-const ilormKnex = require('../..');
+const knex = require('./knex');
+const ilormKnex = require('../index');
 
 /**
  * Class used to store a test session data (database connection, ilorm instance).

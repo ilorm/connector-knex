@@ -1,5 +1,5 @@
 
-const TestContext = require('./helpers');
+const TestContext = require('../helpers');
 const { expect, } = require('chai');
 
 const testContext = new TestContext();
