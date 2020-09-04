@@ -1,17 +1,18 @@
 
-const TestContext = require('../helpers');
-const { CHEWBACCA, } = require('../starWars.fixture');
+const TestContext = require('../testContext.class');
 
 const { expect, } = require('chai');
 
 const testContext = new TestContext();
+const { CHEWBACCA, } = testContext.fixtures.getCharactersFixture();
 
 describe('query.count', () => {
+  after(() => testContext.finalCleanUp());
   beforeEach(() => testContext.initDb());
   afterEach(() => testContext.cleanDb());
 
   it('Should count all element without filters', async () => {
-    const Characters = await testContext.getCharactersModel();
+    const Characters = testContext.Models.characters;
 
     const amount = await Characters.query()
       .count();
@@ -21,7 +22,7 @@ describe('query.count', () => {
   });
 
   it('Should count a subset of element if filter is set', async () => {
-    const Characters = await testContext.getCharactersModel();
+    const Characters = testContext.Models.characters;
 
     const amount = await Characters.query()
       .name.is(CHEWBACCA.name)

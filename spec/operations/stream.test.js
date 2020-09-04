@@ -1,17 +1,17 @@
 
-const TestContext = require('../helpers');
-const { CHEWBACCA, LUKE, LEIA, DARTH_VADOR, } = require('../starWars.fixture');
+const TestContext = require('../testContext.class');
 
 const { expect, } = require('chai');
 
 const testContext = new TestContext();
+const { CHEWBACCA, LUKE, LEIA, DARTH_VADOR, } = testContext.fixtures.getCharactersFixture();
 
 describe('query.stream', () => {
   beforeEach(() => testContext.initDb());
   afterEach(() => testContext.cleanDb());
 
   it('Should stream all elements', async () => {
-    const Characters = await testContext.getCharactersModel();
+    const Characters = testContext.Models.characters;
 
     const nameStream = await Characters.query()
       .name.selectOnly()
@@ -37,7 +37,7 @@ describe('query.stream', () => {
   });
 
   it('Should stream a subset of elements', async () => {
-    const Characters = await testContext.getCharactersModel();
+    const Characters = testContext.Models.characters;
 
     const nameStream = await Characters.query()
       .name.selectOnly()

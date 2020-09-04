@@ -1,15 +1,19 @@
 
-const TestContext = require('../helpers');
+const TestContext = require('../testContext.class');
 const { expect, } = require('chai');
 
-const testContext = new TestContext();
-
 describe('query.limit', () => {
+  let testContext;
+
+  before(() => {
+    testContext = new TestContext();
+  });
+  after(() => testContext.finalCleanUp());
   beforeEach(() => testContext.initDb());
   afterEach(() => testContext.cleanDb());
 
   it('Should limit to one element', async () => {
-    const Characters = await testContext.getCharactersModel();
+    const Characters = testContext.Models.characters;
 
     const characters = await Characters.query()
       .limit(1)
@@ -21,11 +25,17 @@ describe('query.limit', () => {
 
 
 describe('query.skip', () => {
+  let testContext;
+
+  before(() => {
+    testContext = new TestContext();
+  });
+  after(() => testContext.finalCleanUp());
   beforeEach(() => testContext.initDb());
   afterEach(() => testContext.cleanDb());
 
   it('Should skip to next element', async () => {
-    const Characters = await testContext.getCharactersModel();
+    const Characters = testContext.Models.characters;
 
     const LIMIT = 2;
 

@@ -1,17 +1,18 @@
 
-const TestContext = require('../helpers');
-const { CHEWBACCA, LUKE, } = require('../starWars.fixture');
+const TestContext = require('../testContext.class');
 
 const { expect, } = require('chai');
 
 const testContext = new TestContext();
+const { CHEWBACCA, LUKE, } = testContext.fixtures.getCharactersFixture();
 
 describe('query.or', () => {
   beforeEach(() => testContext.initDb());
   afterEach(() => testContext.cleanDb());
+  after(() => testContext.finalCleanUp());
 
   it('Should create query with or operator', async () => {
-    const Characters = await testContext.getCharactersModel();
+    const Characters = testContext.Models.characters;
 
     const names = await Characters.query()
       .name.selectOnly()
