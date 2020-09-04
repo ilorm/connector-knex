@@ -1,6 +1,6 @@
 {
   "name": "ilorm-connector-knex",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Connector to SQL database for ilorm ORM",
   "main": "index.js",
   "scripts": {
