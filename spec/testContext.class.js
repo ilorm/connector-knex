@@ -1,4 +1,5 @@
-const Fixtures = require('./starWars.fixture');
+const StarWarsFixtures = require('./starWars.fixture');
+const InvoicesFixtures = require('./invoices.fixtures');
 const TestContext = require('ilorm/spec/common/testContext.class');
 
 // Create a clean instance of ilorm :
@@ -10,7 +11,7 @@ const ilormKnex = require('../index');
  */
 class KnexTestContext extends TestContext {
   // eslint-disable-next-line require-jsdoc
-  constructor() {
+  constructor(Fixtures) {
     super();
 
     this.knex = knex();
@@ -20,6 +21,16 @@ class KnexTestContext extends TestContext {
     this.ilorm.use(ilormKnex);
 
     this.fixtures = new Fixtures(this.knex, KnexConnection);
+  }
+
+  // eslint-disable-next-line require-jsdoc
+  static getStarWars() {
+    return new this(StarWarsFixtures);
+  }
+
+  // eslint-disable-next-line require-jsdoc
+  static getInvoices() {
+    return new this(InvoicesFixtures);
   }
 
   // eslint-disable-next-line require-jsdoc
