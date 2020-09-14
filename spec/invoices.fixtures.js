@@ -28,6 +28,13 @@ class KnexInvoicesFixtures extends InvoiceFixtures {
   }
 
   // eslint-disable-next-line require-jsdoc
+  getAccountsConnector() {
+    return new this.IlormKnex({
+      tableName: 'accounts',
+    });
+  }
+
+  // eslint-disable-next-line require-jsdoc
   async initDb() {
     await this.knex.schema.createTable('customers', (table) => {
       table.uuid('id');
@@ -42,14 +49,21 @@ class KnexInvoicesFixtures extends InvoiceFixtures {
       table.dateTime('createdAt');
       table.dateTime('paidAt');
     });
+    await this.knex.schema.createTable('accounts', (table) => {
+      table.uuid('customerId');
+      table.integer('balance');
+    });
 
     const Invoices = this.getInvoicesFixture();
     const Customers = this.getCustomersFixture();
+    const Accounts = this.getAccountsFixture();
 
     await this.knex.insert(Object.keys(Customers).map((CustomerName) => Customers[CustomerName]))
       .into('customers');
     await this.knex.insert(Object.keys(Invoices).map((charName) => Invoices[charName]))
       .into('invoices');
+    await this.knex.insert(Object.keys(Accounts).map((accountName) => Accounts[accountName]))
+      .into('accounts');
 
   }
 
@@ -63,6 +77,12 @@ class KnexInvoicesFixtures extends InvoiceFixtures {
     }
     try {
       await this.knex.schema.dropTable('invoices');
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error(err);
+    }
+    try {
+      await this.knex.schema.dropTable('accounts');
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error(err);
