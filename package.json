@@ -1,6 +1,6 @@
 {
   "name": "ilorm-connector-knex",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "Connector to SQL database for ilorm ORM",
   "main": "index.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "eslint": "^7.4.0",
-    "ilorm": "^0.12.2",
+    "ilorm": "^0.13.0",
     "jsdoc": "^3.6.4",
     "mocha": "^8.0.1",
     "mysql2": "^2.1.0",
