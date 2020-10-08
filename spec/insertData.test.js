@@ -21,7 +21,7 @@ const userSchema = new Schema({
 const modelConfig = {
   name: 'users',
   schema: userSchema,
-  connector: new KnexConnection({ tableName: 'users', }),
+  connector: new KnexConnection({ sourceName: 'users', }),
 };
 
 const User = newModel(modelConfig);

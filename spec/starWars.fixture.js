@@ -16,14 +16,14 @@ class KnexStarWarsFixtures extends StarWarsFixtures {
   // eslint-disable-next-line require-jsdoc
   getCharactersConnector() {
     return new this.IlormKnex({
-      tableName: 'characters',
+      sourceName: 'characters',
     });
   }
 
   // eslint-disable-next-line require-jsdoc
   getRacesConnector() {
     return new this.IlormKnex({
-      tableName: 'races',
+      sourceName: 'races',
     });
   }
 

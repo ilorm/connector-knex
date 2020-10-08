@@ -16,21 +16,21 @@ class KnexInvoicesFixtures extends InvoiceFixtures {
   // eslint-disable-next-line require-jsdoc
   getInvoicesConnector() {
     return new this.IlormKnex({
-      tableName: 'invoices',
+      sourceName: 'invoices',
     });
   }
 
   // eslint-disable-next-line require-jsdoc
   getCustomersConnector() {
     return new this.IlormKnex({
-      tableName: 'customers',
+      sourceName: 'customers',
     });
   }
 
   // eslint-disable-next-line require-jsdoc
   getAccountsConnector() {
     return new this.IlormKnex({
-      tableName: 'accounts',
+      sourceName: 'accounts',
     });
   }
 
