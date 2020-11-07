@@ -20,7 +20,11 @@ class KnexTestContext extends TestContext {
 
     this.ilorm.use(ilormKnex);
 
-    this.fixtures = new Fixtures(this.knex, KnexConnection);
+    this.Connector = KnexConnection;
+
+    if (Fixtures) {
+      this.fixtures = new Fixtures(this.knex, KnexConnection);
+    }
   }
 
   // eslint-disable-next-line require-jsdoc
@@ -31,6 +35,15 @@ class KnexTestContext extends TestContext {
   // eslint-disable-next-line require-jsdoc
   static getInvoices() {
     return new this(InvoicesFixtures);
+  }
+
+  // eslint-disable-next-line require-jsdoc
+  async deleteSource(sourceName) {
+    try {
+      await this.knex.schema.dropTable(sourceName);
+      // eslint-disable-next-line no-empty
+    } catch (err) {
+    }
   }
 
   // eslint-disable-next-line require-jsdoc
